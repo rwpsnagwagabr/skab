@@ -1,0 +1,16 @@
+<odoo>
+    <!-- إنشاء مجموعة Skab Manager -->
+    <record id="group_skab_manager" model="res.groups">
+        <field name="name">Skab Manager</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- منح صلاحية الوصول إلى Access Rights -->
+    <record id="skab_manager_access_rights_rule" model="ir.rule">
+        <field name="name">Skab Manager Access Rights</field>
+        <field name="model_id" ref="base.model_res_groups"/>
+        <field name="domain_force">[('id', '=', user.groups_id.ids)]</field>
+        <field name="groups" eval="[(4, ref('custom_security_rwpst.group_skab_manager'))]"/>
+    </record>
+</odoo>

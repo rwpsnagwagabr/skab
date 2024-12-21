@@ -1,0 +1,41 @@
+<odoo>
+    <!-- تصنيف جديد للمجموعات -->
+    <record id="module_category_custom_security_rwpst" model="ir.module.category">
+        <field name="name">Custom Security</field>
+        <field name="description">Manage custom groups and permissions</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- مجموعة الإدارة العليا -->
+    <record id="group_top_management" model="res.groups">
+        <field name="name">Top Management</field>
+        <field name="category_id" ref="module_category_custom_security_rwpst"/>
+    </record>
+
+    <!-- مجموعة رؤساء الأقسام -->
+    <record id="group_department_managers" model="res.groups">
+        <field name="name">Division Heads</field>
+        <field name="category_id" ref="module_category_custom_security_rwpst"/>
+        <field name="implied_ids" eval="[(4, ref('group_top_management'))]"/>
+    </record>
+
+    <!-- مجموعة مديري المشاريع -->
+    <record id="group_project_managers" model="res.groups">
+        <field name="name">Project Managers</field>
+        <field name="category_id" ref="module_category_custom_security_rwpst"/>
+        <field name="implied_ids" eval="[(4, ref('group_department_managers'))]"/>
+    </record>
+
+    <!-- مجموعة مهندسي الموقع -->
+    <record id="group_site_engineers" model="res.groups">
+        <field name="name">Site Engineers</field>
+        <field name="category_id" ref="module_category_custom_security_rwpst"/>
+        <field name="implied_ids" eval="[(4, ref('group_project_managers'))]"/>
+    </record>
+
+    <!-- مجموعة الموظفين العاديين -->
+    <record id="group_regular_employees" model="res.groups">
+        <field name="name">Regular Employees</field>
+        <field name="category_id" ref="module_category_custom_security_rwpst"/>
+    </record>
+</odoo>

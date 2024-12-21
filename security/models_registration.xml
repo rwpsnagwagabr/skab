@@ -1,0 +1,7 @@
+<odoo>
+    <record id="model_res_users" model="ir.model">
+        <field name="name">res.users</field>
+        <field name="model">res.users</field>
+        <field name="state">manual</field>
+    </record>
+</odoo>
