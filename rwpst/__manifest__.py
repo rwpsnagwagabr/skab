@@ -22,7 +22,7 @@
 
     # always loaded
     'data': [
-        'security/skab_manager_group.xml',
+        # 'security/skab_manager_group.xml',
         'security/custom_security_rwpst.xml',
         'security/record_rules.xml',
         'security/ir.model.access.csv'
