@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_calendar_event_user,Calendar Event Access,calendar.model_calendar_event,base.group_user,1,1,1,1
+access_res_groups_skab_manager,Access Res Groups for Skab Manager,base.model_res_groups,custom_security_rwpst.group_skab_manager,1,1,1,1
+

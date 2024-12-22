@@ -1,0 +1,17 @@
+<odoo>
+    <!-- إنشاء مجموعة Skab Manager -->
+    <record id="group_skab_manager" model="res.groups">
+        <field name="name">Skab Manager</field>
+        <field name="category_id" ref="base.module_category_user_type"/> <!-- فئة يمكن أن تكون مرئية -->
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> <!-- توريث الصلاحيات من مستخدم عادي -->
+    </record>
+
+    <!-- قاعدة للتحكم في الصلاحيات -->
+    <record id="skab_manager_access_rule" model="ir.rule">
+        <field name="name">Skab Manager Access Rights</field>
+        <field name="model_id" ref="base.model_res_groups"/> <!-- نموذج يتحكم في الصلاحيات -->
+        <field name="domain_force">[('id', 'in', user.groups_id.ids)]</field> <!-- تحديد المجال (Filter) -->
+        <field name="groups" eval="[(4, ref('custom_security_rwpst.group_skab_manager'))]"/> <!-- ربط القاعدة بالمجموعة -->
+    </record>
+</odoo>
+
